@@ -8,8 +8,7 @@ export class CreateEventDto {
   payload: Record<string, any>;
 
   @IsString()
-  @IsOptional()
-  user_id?: string;
+  origin: string;
 
   @IsUUID()
   @IsOptional()

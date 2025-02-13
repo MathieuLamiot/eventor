@@ -12,7 +12,7 @@ export interface EnrichedEvent {
   id: string;
   event_type: string;
   payload: Record<string, any>;
-  user_id?: string;
+  origin: string;
   correlation_id: string;
   created_at: Date;
   metadata: EventMetadata;

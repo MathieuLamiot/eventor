@@ -11,8 +11,8 @@ export class Event {
   @Column('jsonb')
   payload: Record<string, any>;
 
-  @Column({ nullable: true })
-  user_id?: string;
+  @Column()
+  origin: string;
 
   @Column('uuid', { nullable: true })
   correlation_id?: string;

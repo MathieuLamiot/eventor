@@ -16,7 +16,7 @@ export class EventValidatorService {
     this.baseSchema = z.object({
       event_type: z.string().min(1),
       payload: z.record(z.any()),
-      user_id: z.string().optional(),
+      origin: z.string(),
       correlation_id: z.string().uuid().optional(),
     });
 

@@ -1,7 +1,7 @@
 export interface BaseEvent {
     event_type: string;
     payload: Record<string, any>;
-    user_id?: string;
+    origin: string;
     correlation_id?: string;
   }
   

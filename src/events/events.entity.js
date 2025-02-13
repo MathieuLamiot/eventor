@@ -14,9 +14,8 @@ export const EventEntity = new EntitySchema({
     payload: {
       type: 'jsonb',
     },
-    user_id: {
+    origin: {
       type: String,
-      nullable: true,
     },
     correlation_id: {
       type: 'uuid',
