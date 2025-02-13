@@ -25,6 +25,14 @@ services:
       - POSTGRES_DB=eventdb
     volumes:
       - pgdata:/var/lib/postgresql/data
+  postgres_test:
+    image: postgres:14
+    ports:
+      - "5433:5432"  # Different port for test db
+    environment:
+      - POSTGRES_USER=eventuser
+      - POSTGRES_PASSWORD=eventpass
+      - POSTGRES_DB=eventdb_test
 
 volumes:
   pgdata:
