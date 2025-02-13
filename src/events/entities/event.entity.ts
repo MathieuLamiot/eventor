@@ -1,0 +1,22 @@
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
+
+@Entity()
+export class Event {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  event_type: string;
+
+  @Column('jsonb')
+  payload: Record<string, any>;
+
+  @Column({ nullable: true })
+  user_id?: string;
+
+  @Column('uuid', { nullable: true })
+  correlation_id?: string;
+
+  @CreateDateColumn()
+  created_at: Date;
+}
