@@ -32,8 +32,8 @@ export class EventEnricherService {
         processed_at: new Date(),
         source: 'event-manager',
         processor_version: '1.0',
-        environment: process.env.NODE_ENV || 'development'
-      }
+        environment: process.env.NODE_ENV || 'development',
+      },
     };
   }
 }

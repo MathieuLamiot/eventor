@@ -20,14 +20,9 @@ import { EventStoreService } from './services/event-store.service';
       useFactory: (configService: ConfigService) => configService.get('database'),
       inject: [ConfigService],
     }),
-    TypeOrmModule.forFeature([Event])
+    TypeOrmModule.forFeature([Event]),
   ],
   controllers: [EventsController],
-  providers: [
-    EventsService,
-    EventValidatorService,
-    EventEnricherService,
-    EventStoreService
-  ],
+  providers: [EventsService, EventValidatorService, EventEnricherService, EventStoreService],
 })
 export class EventsModule {}

@@ -8,7 +8,7 @@ export class EventsService {
   constructor(
     private readonly validator: EventValidatorService,
     private readonly enricher: EventEnricherService,
-    private readonly store: EventStoreService
+    private readonly store: EventStoreService,
   ) {}
 
   async processEvent(eventData: any) {
@@ -18,7 +18,7 @@ export class EventsService {
 
     return {
       event_id: eventId,
-      correlation_id: enrichedEvent.correlation_id
+      correlation_id: enrichedEvent.correlation_id,
     };
   }
 }

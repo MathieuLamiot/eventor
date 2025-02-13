@@ -21,10 +21,13 @@ export class EventValidatorService {
     });
 
     // Register specific event schemas
-    this.registerSchema('credit_reset', z.object({
-      remaining_credits: z.number().min(0),
-      reset_reason: z.string().optional(),
-    }));
+    this.registerSchema(
+      'credit_reset',
+      z.object({
+        remaining_credits: z.number().min(0),
+        reset_reason: z.string().optional(),
+      }),
+    );
   }
 
   public registerSchema(eventType: string, payloadSchema: z.ZodSchema): void {
@@ -34,7 +37,7 @@ export class EventValidatorService {
   public async validateEvent(event: any): Promise<boolean> {
     try {
       // Validate basic event structure
-      const baseValidation = this.baseSchema.parse(event);
+      const _baseValidation = this.baseSchema.parse(event);
 
       // Validate event-specific payload if schema exists
       const payloadSchema = this.schemas.get(event.event_type);
@@ -45,7 +48,9 @@ export class EventValidatorService {
       return true;
     } catch (error) {
       if (error instanceof z.ZodError) {
-        throw new BadRequestException(`Validation failed: ${error.errors.map(e => e.message).join(', ')}`);
+        throw new BadRequestException(
+          `Validation failed: ${error.errors.map((e) => e.message).join(', ')}`,
+        );
       }
       throw error;
     }

@@ -74,7 +74,7 @@ export class EventStoreService implements OnModuleInit, OnModuleDestroy {
 
   private async processBatchWithTransaction(
     queryRunner: QueryRunner,
-    events: EnrichedEvent[]
+    events: EnrichedEvent[],
   ): Promise<void> {
     for (const event of events) {
       await queryRunner.manager.save(Event, event);

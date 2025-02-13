@@ -11,12 +11,12 @@ export class EventsController {
       const result = await this.eventsService.processEvent(event);
       return {
         status: 'success',
-        ...result
+        ...result,
       };
     } catch (error) {
       return {
         status: 'error',
-        message: error.message
+        message: error.message,
       };
     }
   }
@@ -26,7 +26,7 @@ export class EventsController {
     return {
       status: 'ok',
       timestamp: new Date(),
-      version: '1.0'
+      version: '1.0',
     };
   }
 }
