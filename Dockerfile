@@ -1,4 +1,4 @@
-FROM node:18-alpine AS build
+FROM node:20-alpine AS build
 WORKDIR /app
 
 # Install dependencies
@@ -13,7 +13,7 @@ RUN npm run build
 RUN npm prune --production
 
 # Second stage
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Create app directory and user
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
