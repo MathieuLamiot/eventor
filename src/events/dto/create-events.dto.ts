@@ -4,6 +4,9 @@ export class CreateEventDto {
   @IsString()
   event_type: string;
 
+  @IsString()
+  event_version: string;
+
   @IsObject()
   payload: Record<string, any>;
 

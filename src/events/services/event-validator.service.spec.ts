@@ -20,6 +20,7 @@ describe('EventValidatorService', () => {
   it('should validate a valid event', async () => {
     const validEvent = {
       event_type: 'credit_reset',
+      event_version: 1,
       payload: {
         remaining_credits: 100,
         reset_reason: 'monthly',
@@ -33,6 +34,7 @@ describe('EventValidatorService', () => {
   it('should reject an invalid event', async () => {
     const invalidEvent = {
       event_type: 'credit_reset',
+      event_version: '1.0',
       payload: {
         remaining_credits: 'not-a-number', // Should be a number
       },

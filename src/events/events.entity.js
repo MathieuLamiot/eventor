@@ -11,6 +11,9 @@ export const EventEntity = new EntitySchema({
     event_type: {
       type: String,
     },
+    event_version: {
+      type: Number,
+    },
     payload: {
       type: 'jsonb',
     },

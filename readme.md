@@ -46,6 +46,7 @@ graph TD
 CREATE TABLE events (
     id UUID PRIMARY KEY,
     event_type VARCHAR NOT NULL,
+    event_version INT NOT NULL,
     payload JSONB NOT NULL,
     origin VARCHAR NOT NULL,
     correlation_id UUID,
@@ -141,6 +142,7 @@ Request:
 ```json
 {
   "event_type": "credit_reset",
+  "event_version": 1,
   "payload": {
     "remaining_credits": 100,
     "reset_reason": "monthly_reset"

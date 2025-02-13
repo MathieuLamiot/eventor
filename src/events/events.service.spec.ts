@@ -48,6 +48,7 @@ describe('EventsService', () => {
   it('should process event successfully', async () => {
     const testEvent = {
       event_type: 'test',
+      event_version: 1,
       payload: {},
       origin: 'test-system',
     };

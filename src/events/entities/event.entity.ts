@@ -8,6 +8,9 @@ export class Event {
   @Column()
   event_type: string;
 
+  @Column()
+  event_version: number;
+
   @Column('jsonb')
   payload: Record<string, any>;
 
