@@ -4,6 +4,7 @@ WORKDIR /app
 # Install dependencies
 COPY package*.json ./
 COPY tsconfig.json ./
+COPY typeorm.config.js ./
 RUN npm install -g @nestjs/cli
 RUN npm install
 
@@ -20,6 +21,10 @@ RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 RUN mkdir /app && chown appuser:appgroup /app
 USER appuser
 WORKDIR /app
+
+# Copy config files needed for migrations
+COPY --chown=appuser:appgroup package*.json ./
+COPY --chown=appuser:appgroup typeorm.config.js ./
 
 # Copy built assets from build stage
 COPY --from=build --chown=appuser:appgroup /app/dist ./dist

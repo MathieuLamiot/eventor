@@ -8,7 +8,9 @@ export default () => ({
     password: process.env.POSTGRES_PASSWORD,
     database: process.env.POSTGRES_DB,
     entities: ['dist/**/*.entity{.ts,.js}'],
-    synchronize: process.env.NODE_ENV !== 'production', // Be careful with this in production
+    synchronize: false, // Disable synchronize
+    migrationsRun: true, // Run migrations on startup
+    migrations: ['dist/migrations/*.js'],
   },
   events: {
     batchSize: parseInt(process.env.EVENT_BATCH_SIZE, 10) || 100,
